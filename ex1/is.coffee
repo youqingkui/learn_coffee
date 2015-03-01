@@ -1,0 +1,1 @@
+odd = (num) -> num % 2 is 1
