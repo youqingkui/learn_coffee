@@ -1,3 +1,5 @@
+@(笔记)[CoffeeScript]
+
 # Learn CoffeeScript
 
 [TOC]
@@ -136,3 +138,58 @@ catch e
     console.log(e);
   }
 ```
+
+### 作用域
+coffee像python一样无需定义变量，则可以使用，这点与JS一致，但是在JS中不定义的变量是全局的。
+```coffee
+age = 99
+reincarnate = ->
+  age = 0
+reincarnate()
+console.log "I am #{age} years old" # age = 0
+```
+
+```js
+  var age, reincarnate;
+
+  age = 99;
+
+  reincarnate = function() {
+    return age = 0;
+  };
+
+  reincarnate();
+
+  console.log("I am " + age + " years old");
+```
+> 因为在函数外面定义了age，在函数里面使用同样的变量名，导致coffee使用的是函数外的age
+
+```coffee
+reincarnate = ->
+  age = 0
+
+age = 99
+reincarnate()
+console.log "I am #{age} years old" # age = 99
+```
+```js
+  var age, reincarnate;
+
+  reincarnate = function() {
+    var age;
+    return age = 0;
+  };
+
+  age = 99;
+
+  reincarnate();
+
+  console.log("I am " + age + " years old");
+```
+> 因为先定义了函数，函数里面的是局部变量
+
+
+	
+
+
+
