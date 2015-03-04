@@ -1,5 +1,3 @@
-@(笔记)[CoffeeScript]
-
 # Learn CoffeeScript
 
 [TOC]
@@ -188,6 +186,17 @@ console.log "I am #{age} years old" # age = 99
 ```
 > 因为先定义了函数，函数里面的是局部变量
 
+### 默认参数
+有几个小意思的语法糖
+`a?` 代表的是a是否存在，返回一个布尔值
+`c ?= d`是`c = d unless c?`的简写，可以将其解读为“d为c的默认值”
+
+### 参数列表
+非参数列参数优先赋值
+```coffee
+sandwich = (beginning, middle..., end) ->
+```
+>如果只传递两个参数来调用sandwich函数，则这两个参数将变成beginning和end。只有存在3个或3个以上的参数时才会有参数放到middle中。参数列会吸收掉所有多余的参数
 
 	
 
